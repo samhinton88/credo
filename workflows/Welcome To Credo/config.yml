@@ -4,3 +4,4 @@ questions:
       type: string
 templates:
   - helloWorld
+  - withSubFolder
