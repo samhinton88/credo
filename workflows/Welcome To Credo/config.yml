@@ -2,6 +2,9 @@ questions:
   - name: 
       prompt: What is your name?
       type: string
+  - faveThings:
+      prompt: What are a few of your favourite things?
+      type: stringArray
 templates:
   - helloWorld
   - withSubFolder
