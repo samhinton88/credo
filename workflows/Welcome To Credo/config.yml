@@ -5,3 +5,4 @@ questions:
 templates:
   - helloWorld
   - withSubFolder
+headline: This workflow is your introduction to credo! Click the rocket!
