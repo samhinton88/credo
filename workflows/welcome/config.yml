@@ -23,5 +23,8 @@ questions:
                - 3
                - 4
                - 5
+  - learnMore:
+      prompt: Would you like to learn more?
+      type: boolean
 templates:
   - welcome
