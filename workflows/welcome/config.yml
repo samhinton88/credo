@@ -12,5 +12,16 @@ questions:
         - fullstack
         - devops
         - all of the above
+      switch:
+        frontend:
+          - howHappyFrontend:
+              prompt: How happy are you with being a frontend dev out of 5?
+              type: enum
+              enumMembers:
+               - 1
+               - 2
+               - 3
+               - 4
+               - 5
 templates:
   - welcome
