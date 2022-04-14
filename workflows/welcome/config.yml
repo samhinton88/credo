@@ -4,7 +4,13 @@ questions:
       prompt: To get us started, what is your name?
       subtext:  (it doesn't need to be your real name, just something we can call you for the duration of this welcome)
   - isDeveloper:
-      prompt: Awesome, now it's probably fair to say that if you're here it's because you're a developer of some kind, is that right?
-      type: boolean
+      prompt: How would you describe yourself as a developer?
+      type: enum
+      enumMembers: 
+        - frontend
+        - backend
+        - fullstack
+        - devops
+        - all of the above
 templates:
   - welcome
