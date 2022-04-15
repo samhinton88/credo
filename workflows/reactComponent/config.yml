@@ -1,0 +1,8 @@
+headline: How we write a React component at Credo
+questions:
+  - name:
+      type: string
+      prompt: What is the component name?
+      subtext:  (use kebab case e.g. "foo-bar")
+templates:
+  - reactComponentGroup
