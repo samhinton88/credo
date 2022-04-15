@@ -1,9 +1,9 @@
 
-describe("<<%- capitalize(dashToCamel(name))>")
+describe("<<%- capitalize(dashToCamel(name)) %>")
 <% if (tests) { %>
 <% tests.forEach(t => { %>
     it("should <%- t %>", () => {
-        
+
     })
 <% }) %>
 <% } %>
