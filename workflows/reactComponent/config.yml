@@ -4,5 +4,9 @@ questions:
       type: string
       prompt: What is the component name?
       subtext:  (use kebab case e.g. "foo-bar")
+  - tests:
+      type: stringArray
+      prompt: What should we test about the component?
+      subtext: (start your answers with 'should' e.g. "should render")
 templates:
   - reactComponentGroup
