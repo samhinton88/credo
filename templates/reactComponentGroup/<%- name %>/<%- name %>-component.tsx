@@ -1,1 +1,1 @@
-export const <%- capitalize(name) %> = () => <div />
+export const <%- capitalize(dashToCamel(name)) %> = () => <div />
