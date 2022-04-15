@@ -1,9 +1,9 @@
+import { <%- capitalize(dashToCamel(name)) %> } from './<%- name %>-component'
 
-describe("<<%- capitalize(dashToCamel(name)) %>")
+describe("<<%- capitalize(dashToCamel(name)) %> />")
 <% if (tests) { %>
 <% tests.forEach(t => { %>
     it("should <%- t %>", () => {
 
-    })
-<% }) %>
+    })<% }) %>
 <% } %>
