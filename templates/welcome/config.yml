@@ -1,5 +1,7 @@
 parameters:
   name:
     type: string
+  developerType:
+    type: string
 tags:
   - welcome
