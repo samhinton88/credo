@@ -9,6 +9,8 @@ parameters:
     type: stringArray
   styleRules:
     type: stringArray
+  props:
+    type: stringArray
     
 tags:
   - react
