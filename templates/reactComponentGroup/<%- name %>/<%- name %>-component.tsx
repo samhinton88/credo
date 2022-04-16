@@ -3,7 +3,7 @@
 <% if (props) {%>
 export interface <%- capitalize(dashToCamel(name)) %>Props {
 <% props.forEach(p => {%>
-    <% p %>
+    <%- p %>
 <% }) %>
 }
 <%}%>
