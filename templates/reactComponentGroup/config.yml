@@ -11,6 +11,8 @@ parameters:
     type: stringArray
   props:
     type: stringArray
+  state:
+    type: stringArray
     
 tags:
   - react
