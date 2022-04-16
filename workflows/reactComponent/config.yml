@@ -8,6 +8,10 @@ questions:
       type: stringArray
       prompt: What props does your component need?
       subtext: "List them like <propName>:<propType> e.g. tags: string[]"
+  - state:
+      type: stringArray
+      prompt: What state does your component need?
+      subtext: "List them like <propName>:<propType> e.g. tags: string[]"
   - tests:
       type: stringArray
       prompt: What should we test about the component?
