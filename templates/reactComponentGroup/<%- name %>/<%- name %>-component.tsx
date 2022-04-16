@@ -10,8 +10,7 @@ export interface <%- capitalize(dashToCamel(name)) %>Props {
 <% if (state && state.length > 4 ) { %>
 interface State {
     <% state.forEach(s => {%>
-        <%- s %>
-    <% }) %>
+        <%- s %><% }) %>
 }
 
 /**
