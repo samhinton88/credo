@@ -14,6 +14,10 @@ interface State {
     <% }) %>
 }
 
+/**
+ * For components that require more than a few different peices
+ * of state to manage, we prefer useReducer
+ */
 const reducer = (state: State, action) => {
   switch (action.type) {
       <% state.map(item => item.split(':')).map(([k, v]) => { %>
