@@ -15,7 +15,7 @@ interface State {
 }
 
 /**
- * For components that require more than a few different peices
+ * For components that require more than a few different pieces
  * of state to manage, we prefer useReducer
  */
 const reducer = (state: State, action) => {
