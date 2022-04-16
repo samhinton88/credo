@@ -3,7 +3,11 @@ questions:
   - name:
       type: string
       prompt: What is the component name?
-      subtext:  (use kebab case e.g. "foo-bar")
+      subtext:  Use kebab case e.g. "my-super-list-component"
+  - props:
+      type: stringArray
+      prompt: What props does your component need?
+      subtext: "List them like <propName>:<propType> e.g. tags: string[]"
   - tests:
       type: stringArray
       prompt: What should we test about the component?
