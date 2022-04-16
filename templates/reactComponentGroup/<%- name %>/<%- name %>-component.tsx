@@ -20,7 +20,7 @@ const reducer = (state: State, action) => {
       case "SET_<%- k.toUpperCase()  %>":
           return { ...state, <%- k %>: action.payload}
       <% }) %>
-      default return state;
+      default: return state;
   }
 
 }
