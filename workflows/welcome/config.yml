@@ -3,7 +3,7 @@ questions:
   - name:
       type: string
       prompt: To get us started, what is your name?
-      subtext:  (it doesn't need to be your real name, just something we can call you for the duration of this welcome)
+      subtext:  it doesn't need to be your real name, just something we can call you for the duration of this welcome
   - developerType:
       prompt: How would you describe yourself as a developer?
       type: enum
