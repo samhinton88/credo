@@ -1,9 +1,0 @@
-parameters:
-  name: 
-    type: string
-    example: John Doe
-
-
-tags:
-  - welcome
-  - example
