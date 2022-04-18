@@ -1,8 +1,7 @@
 
 <% if (props && props.length > 0) {%>
 export interface <%- capitalize(dashToCamel(name)) %>Props {
-<% props.forEach(p => {%>
-    <%- p %>
+<% props.forEach(p => {%><%- p %>
 <% }) %>
 }
 <%}%>
