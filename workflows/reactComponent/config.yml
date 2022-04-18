@@ -18,3 +18,7 @@ questions:
       subtext: (start your answers with 'should' e.g. "should render")
 templates:
   - reactComponentGroup
+tags:
+  - react
+  - frontend
+  - code pattern
