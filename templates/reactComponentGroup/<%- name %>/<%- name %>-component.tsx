@@ -4,7 +4,7 @@ import {
    } from 'react'
 <% if (props && props.length > 0) {%>
 export interface <%- capitalize(dashToCamel(name)) %>Props {
-<% props.forEach(p => {%><%- p %>
+<% props..map(item => item.split(':')).forEach(([k, v])=> {%><%- dashToCamel(k) %>: v;
 <% }) %>
 }
 <%}%>
