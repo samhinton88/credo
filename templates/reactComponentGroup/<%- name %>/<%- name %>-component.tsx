@@ -37,8 +37,7 @@ export const <%- capitalize(dashToCamel(name)) %> = (
     const [state, dispatch] = React.useReducer(reducer);
     <% } else if (state) { %>
         <% state.map(s => s.split(':')).forEach(([k,v]) => { %>
-    const [ <%- k  %>, set<%- capitalize(k) %>] = useState();
-        <% }) %>
+    const [ <%- k  %>, set<%- capitalize(k) %>] = useState();<% }) %>
     <% } %>
     return <div />
 }
