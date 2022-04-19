@@ -1,5 +1,6 @@
 import { 
     useState,
+    <% if (state && state.length > 2 ) { %>useReducer,<% } %>
     <% if (fetchedResourcePath) { %>useEffect<% }%>
    } from 'react'
 <% if (props && props.length > 0) {%>
