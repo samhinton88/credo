@@ -14,5 +14,6 @@ questions:
       dependentKey: ready
       enumMembers:
         - O(n)
+        - Recursive (and exponential)
 templates:
   - welcome
