@@ -4,8 +4,10 @@ parameters:
   ready:
     type: boolean
   fibType:
-    type: enum
+    type: string
     enumMembers:
       - O(n)
+  readyForSubDirs:
+    type: boolean
 tags:
   - welcome

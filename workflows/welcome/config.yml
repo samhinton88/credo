@@ -16,5 +16,9 @@ questions:
         - O(n)
         - Recursive (and exponential)
         - Recursive (with memoization (linear))
+  - readyForSubDirs:
+      type: boolean
+      prompt: Ready to learn about subdirectories and templates?
+      dependentKey: fibType
 templates:
   - welcome
