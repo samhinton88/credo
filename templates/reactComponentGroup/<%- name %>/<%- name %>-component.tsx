@@ -9,7 +9,7 @@ export interface <%- capitalize(dashToCamel(name)) %>Props {
 <% if (state && state.length > 2 ) { %>
 export interface <%- capitalize(dashToCamel(name)) %>State {
     <% state.map(item => item.split(':')).map(([k, v]) => {%>
-        <%- dashToCamel(k) %>: v;<% }) %>
+        <%- dashToCamel(k) %>: <%- v %>;<% }) %>
 }
 
 /**
