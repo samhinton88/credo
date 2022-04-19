@@ -16,6 +16,14 @@ questions:
       type: stringArray
       prompt: What should we test about the component?
       subtext: (start your answers with 'should' e.g. "should render")
+  - fetchesResource:
+      type: boolean
+      prompt: Does the component make a get request when it first renders?
+  - fetchedResourcePath:
+      type: string
+      dependentKey: fetchesResource
+      prompt: What is the url for the fetched resource?
+      subtext: it'll probably look something like '/api/whatever'
 templates:
   - reactComponentGroup
 tags:
