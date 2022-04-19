@@ -1,0 +1,12 @@
+headline: How to write a simple microservice in golang
+questions:
+  - name:
+      type: string
+      prompt: What is the name of the data that this microservice is for?
+      subtext:  Use kebab case e.g. "blog-post"
+templates:
+  - golangMicroservice
+tags:
+  - backend
+  - golang
+  - microservice

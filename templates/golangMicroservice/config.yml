@@ -1,0 +1,6 @@
+parameters:
+  resourceName:
+    type: string
+    
+tags:
+  - golang
