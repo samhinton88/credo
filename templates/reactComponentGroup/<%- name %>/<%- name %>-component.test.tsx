@@ -38,6 +38,12 @@ describe("<<%- capitalize(dashToCamel(name)) %> />", () => {
               return res(ctx.status(500))
             }),
           );
+
+          render(<<%-  capitalize(dashToCamel(name)) %> />);
+          
+          await waitFor(() => {
+            expect(screen.getByText('500')).toBeInTheDocument()
+          })
           
         })
       <%}%>
