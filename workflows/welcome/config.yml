@@ -15,5 +15,6 @@ questions:
       enumMembers:
         - O(n)
         - Recursive (and exponential)
+        - Recursive (with memoization (linear))
 templates:
   - welcome
