@@ -8,8 +8,8 @@ export interface <%- capitalize(dashToCamel(name)) %>Props {
 
 <% if (state && state.length > 2 ) { %>
 export interface <%- capitalize(dashToCamel(name)) %>State {
-    <% state.forEach(s => {%>
-        <%- s %><% }) %>
+    <% state.map(item => item.split(':')).map(([k, v]) => {%>
+        <%- dashToCamel(k) %>: v;<% }) %>
 }
 
 /**
@@ -20,7 +20,7 @@ export const reducer = (state: State, action) => {
   switch (action.type) {
       <% state.map(item => item.split(':')).map(([k, v]) => { %>
       case "SET_<%- k.split('-').join('_').toUpperCase()  %>":
-          return { ...state, <%- k %>: action.payload}
+          return { ...state, <%- dashToCamel(k) %>: action.payload}
       <% }) %>
       default: return state;
   }
