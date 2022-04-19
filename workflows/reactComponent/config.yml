@@ -15,15 +15,16 @@ questions:
   - tests:
       type: stringArray
       prompt: What should we test about the component?
-      subtext: (start your answers with 'should' e.g. "should render")
+      subtext: start your answers with 'should' e.g. "should render"
   - fetchesResource:
       type: boolean
       prompt: Does the component make a get request when it first renders?
+      subtext: this might be becuase it uses data from an api
   - fetchedResourcePath:
       type: string
       dependentKey: fetchesResource
       prompt: What is the url for the fetched resource?
-      subtext: it'll probably look something like '/api/whatever'
+      subtext: it should look something like 'api/whatever' without a leading slash
 templates:
   - reactComponentGroup
 tags:
