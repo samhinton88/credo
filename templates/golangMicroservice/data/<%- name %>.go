@@ -12,13 +12,12 @@ import (
 //To get nice json field names we can add struct tags though. This will output the key name as the tag name
 type <%- capitalize(dashToCamel(name)) %> struct {
 	ID          int     `json:"id"`
-	Name        string  `json:"name"`
-	Description string  `json:"description"`
-	Price       float32 `json:"price"`
-	SKU         string  `json:"sku"`
 	CreatedOn   string  `json:"-"`
 	UpdatedOn   string  `json:"-"`
 	DeletedOn   string  `json:"-"`
+	<% props.map(p => p.split(':')).forEach(([k,v]) => { %>
+		<%- capitalize(dashToCamel(k)) %>	<%- v %>  `json:"<%- dashToCamel(k) %>"`
+	<% }) %>
 }
 
 // <%- capitalize(dashToCamel(name)) %>s is a type defining slice of struct <%- capitalize(dashToCamel(name)) %>

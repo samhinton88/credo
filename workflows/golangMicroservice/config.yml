@@ -4,6 +4,10 @@ questions:
       type: string
       prompt: What is the name of the data that this microservice is for?
       subtext:  Use kebab case e.g. "blog-post"
+  - props:
+      type: stringArray
+      prompt: What properties make up the data object?
+      subtext: "list them like <kebab-case-name>:<type> e.g. created-on:string"
 templates:
   - golangMicroservice
 tags:

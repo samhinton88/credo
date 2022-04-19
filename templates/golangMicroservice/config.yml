@@ -1,6 +1,9 @@
 parameters:
   name:
     type: string
+  props:
+    type: stringArray
+
     
 tags:
   - golang
