@@ -8,5 +8,11 @@ questions:
       type: boolean
       prompt: Ready to get going?
       dependentKey: name
+  - fibType:
+      type: enum
+      prompt: "Let's show how snippets can be rendered conditionally, pick a complexity:"
+      dependentKey: ready
+      enumMembers:
+        - O(n)
 templates:
   - welcome

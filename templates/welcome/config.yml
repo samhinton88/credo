@@ -3,5 +3,9 @@ parameters:
     type: string
   ready:
     type: boolean
+  fibType:
+    type: enum
+    enumMembers:
+      - O(n)
 tags:
   - welcome
