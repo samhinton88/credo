@@ -16,8 +16,7 @@ type <%- capitalize(dashToCamel(name)) %> struct {
 	UpdatedOn   string  `json:"-"`
 	DeletedOn   string  `json:"-"`
 	<% props.map(p => p.split(':')).forEach(([k,v]) => { %>
-		<%- capitalize(dashToCamel(k)) %>	<%- v %>  `json:"<%- dashToCamel(k) %>"`
-	<% }) %>
+	<%- capitalize(dashToCamel(k)) %>	<%- v %>  `json:"<%- dashToCamel(k) %>"`<% }) %>
 }
 
 // <%- capitalize(dashToCamel(name)) %>s is a type defining slice of struct <%- capitalize(dashToCamel(name)) %>
