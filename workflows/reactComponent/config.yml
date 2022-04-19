@@ -19,7 +19,7 @@ questions:
   - fetchesResource:
       type: boolean
       prompt: Does the component make a get request when it first renders?
-      subtext: this might be becuase it uses data from an api
+      subtext: this might be because it uses data from an api
   - fetchedResourcePath:
       type: string
       dependentKey: fetchesResource
