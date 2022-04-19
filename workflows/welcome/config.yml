@@ -20,5 +20,13 @@ questions:
       type: boolean
       prompt: Ready to learn about subdirectories and templates?
       dependentKey: fibType
+  - fetchesResource:
+      type: boolean
+      prompt: Does the component make a get request when it first renders?
+  - fetchedResourcePath:
+      type: string
+      dependentKey: fetchesResource
+      prompt: What is the url for the fetched resource?
+      subtext: it'll probably look something like '/api/whatever'
 templates:
   - welcome
