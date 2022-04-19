@@ -1,5 +1,5 @@
 parameters:
-  resourceName:
+  name:
     type: string
     
 tags:
