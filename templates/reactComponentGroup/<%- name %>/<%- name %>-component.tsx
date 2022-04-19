@@ -6,7 +6,7 @@ export interface <%- capitalize(dashToCamel(name)) %>Props {
 }
 <%}%>
 
-<% if (state && state.length > 4 ) { %>
+<% if (state && state.length > 2 ) { %>
 export interface <%- capitalize(dashToCamel(name)) %>State {
     <% state.forEach(s => {%>
         <%- s %><% }) %>
@@ -33,7 +33,7 @@ export const <%- capitalize(dashToCamel(name)) %> = (
         props: <%- capitalize(dashToCamel(name)) %>Props
     <% } %>
 ) => {
-    <% if (state && state.length > 4 ) { %>
+    <% if (state && state.length > 2 ) { %>
     const [state, dispatch] = React.useReducer(reducer);
     <% } else if (state) { %>
         <% state.map(s => s.split(':')).forEach(([k,v]) => { %>
