@@ -2,9 +2,10 @@ import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 <% if (fetchedResourcePath) { %>import { setupServer, rest } from 'msw'<%}%>
 import { <%- capitalize(dashToCamel(name)) %> } from "./<%- name %>-component"
 
-const getMock = jest.fn();
 
 <% if (fetchedResourcePath) { %>
+const getMock = jest.fn();
+
 const server = setupServer(
   rest.get('/<%- fetchedResourcePath %>', (req, res, ctx) =>  {
     getMock()
@@ -40,7 +41,7 @@ describe("<<%- capitalize(dashToCamel(name)) %> />", () => {
           
         })
       <%}%>
-      
+
 <% if (tests) { %>
 <% tests.forEach(t => { %>
     it("<%- t %>", () => {
