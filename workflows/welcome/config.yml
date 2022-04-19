@@ -7,6 +7,7 @@ questions:
   - ready:
       type: boolean
       prompt: Ready to get going?
+      dependentKey: name
   - learnMore:
       prompt: Would you like to learn more?
       type: boolean
