@@ -24,6 +24,22 @@ afterAll(() => server.close())
 <%}%>
 
 describe("<<%- capitalize(dashToCamel(name)) %> />", () => {
+    <% if (fetchedResourcePath) { %>
+        it("should fetch <%- fetchedResourcePath %>", async () => {
+          render(<<%-  capitalize(dashToCamel(name)) %> />);
+          
+          await waitFor(() => expect(getMock).toHaveBeenCalled())
+        });
+        
+        it("handles server error", async ()=> {
+          server.use(
+            rest.get('/<%- fetchedResourcePath %>', (req, res, ctx) => {
+              return res(ctx.status(500))
+            }),
+          );
+          
+        })
+      <%}%>
 <% if (tests) { %>
 <% tests.forEach(t => { %>
     it("<%- t %>", () => {

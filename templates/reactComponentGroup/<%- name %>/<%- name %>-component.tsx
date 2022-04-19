@@ -1,4 +1,7 @@
-
+import { 
+    useState,
+    <% if (fetchedResourcePath) { %>useEffect<% }%>
+   } from 'react'<% } %>
 <% if (props && props.length > 0) {%>
 export interface <%- capitalize(dashToCamel(name)) %>Props {
 <% props.forEach(p => {%><%- p %>
@@ -39,5 +42,22 @@ export const <%- capitalize(dashToCamel(name)) %> = (
         <% state.map(s => s.split(':')).forEach(([k,v]) => { %>
     const [ <%- dashToCamel(k)  %>, set<%- capitalize(dashToCamel(k)) %>] = useState();<% }) %>
     <% } %>
+    <% if (fetchedResourcePath) { %>  
+        const [
+          data,
+          setData
+        
+        ] = useState();
+        useEffect(() => {
+         const fetchData = async () => {
+           const dataFromApi = await fetch("/<%- fetchedResourcePath %>").then(res => res.json());
+           setData(dataFromApi);
+         }
+         
+         fetchData();
+       }, [])
+        <%}%>
+
+
     return <div />
 }
