@@ -71,7 +71,7 @@ export class Design {
     %>
     @Field(<%- fieldType[0] === fieldType[0].toUpperCase() ? "() => " + fieldType : "" %>) 
     <%- fieldName %>!: <%- fieldType %>;
-  <% }>
+  <% } %>
 }
 
 @Resolver(() => <%- capName %>)
@@ -90,7 +90,7 @@ export class <%- capName %>Resolver {
     const [fieldName, fieldType] = field.split(':');
     %>
     @ResolveField()
-    async title(@Parent() { id }, @Context(designsLoader) loader: DesignsLoader) {
+    async title(@Parent() { id }, @Context(<%- name %>sLoader) loader: <%- capName %>sLoader) {
       const { <%- fieldName %> } = await loader.load(id);
       return <%- fieldName %>;
     }
