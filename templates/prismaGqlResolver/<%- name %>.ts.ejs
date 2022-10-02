@@ -28,7 +28,7 @@ export function create<%- capName %>sLoader(prisma: Prisma) {
   return new DataLoader<string, Omit<<%- capName %>, 'resource'>>(async (ids) => {
     const data = await prisma.resource.findMany({
       include: {
-        <%- modelKey %>: true,
+        <%- name %>: true,
         integration: {
           select: {
             id: true,
