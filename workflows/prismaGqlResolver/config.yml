@@ -1,0 +1,13 @@
+headline: How to write data layer access for a gql resource
+questions:
+  - name:
+      type: string
+    #   dependentKey: fetchesResource
+      prompt: What is the name of the filter?
+    #   subtext: it should look something like 'api/whatever' without a leading slash
+  - fields:
+      type: stringArray
+      prompt: What fields does this resource have? [fieldName:fieldType]
+templates:
+  - prismaGqlResolver
+tags:
