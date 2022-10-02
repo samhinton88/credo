@@ -1,0 +1,8 @@
+parameters:
+  name:
+    type: string
+  fields:
+    type: stringArray
+    
+tags:
+  - graphql
