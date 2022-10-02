@@ -54,7 +54,6 @@ export function create<%- capName %>sLoader(prisma: Prisma) {
           id: value.id,
         },
         title: value.<%- name %>!.name,
-        url: `https://www.figma.com/file/${value.figmaFile!.key}`,
       };
     });
   });
