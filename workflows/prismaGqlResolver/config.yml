@@ -11,3 +11,4 @@ questions:
 templates:
   - prismaGqlResolver
 tags:
+  - graphql
