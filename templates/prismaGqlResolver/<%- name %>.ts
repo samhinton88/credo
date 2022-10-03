@@ -1,10 +1,4 @@
-/*
-<%
-const capName = capitalize(dashToCamel(name));
-%>
-*/
-
-import { Module } from '@nestjs/common';
+<% const capName = capitalize(dashToCamel(name));%>import { Module } from '@nestjs/common';
 import {
   Context,
   Field,
