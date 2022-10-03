@@ -20,7 +20,7 @@ import { keyBy } from 'lodash';
 
 export type <%- capName %>sLoader = <%- capName %>Loader<string, Design>;
 
-export const <%- capName %>sLoader = '<%- capName %>sLoader';
+export const <%- name %>sLoader = '<%- name %>sLoader';
 
 export function create<%- capName %>sLoader(prisma: Prisma) {
   return new DataLoader<string, Omit<<%- capName %>, 'resource'>>(async (ids) => {
@@ -59,15 +59,6 @@ export class <%- capName %> {
 
 @Resolver(() => <%- capName %>)
 export class <%- capName %>Resolver {
-  @ResolveField()
-  async integration(
-    @Parent() { id },
-    @Context(<%- capName %>sLoader) loader: <%- capName %>sLoader,
-  ) {
-    const { integration } = await loader.load(id);
-    return integration;
-  }
-
   <% for (const field of fields) {%>
     <% 
     const [fieldName, fieldType] = field.split(':');
