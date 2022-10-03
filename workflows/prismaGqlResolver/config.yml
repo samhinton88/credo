@@ -2,12 +2,18 @@ headline: How to write data layer access for a gql resource
 questions:
   - name:
       type: string
-    #   dependentKey: fetchesResource
       prompt: What is the name of the filter?
-    #   subtext: it should look something like 'api/whatever' without a leading slash
   - fields:
       type: stringArray
       prompt: What fields does this resource have? [fieldName:fieldType]
+  - resolver:
+      type: boolean
+      prompt: Does this resource need a resolver?
+  - loader:
+      type: boolean
+      dependentKey: resolver
+      prompt: Do you want to supply the resolver with a DataLoader?
+      subtext: The DataLoader abstraction batches db queries.
 templates:
   - prismaGqlResolver
 tags:
