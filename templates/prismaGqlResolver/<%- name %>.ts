@@ -64,17 +64,11 @@ export class <%- capName %>Resolver {
     const [fieldName, fieldType] = field.split(':');
     %>
     @ResolveField()
-    async title(@Parent() { id }, @Context(<%- name %>sLoader) loader: <%- capName %>sLoader) {
+    async <%- fieldName %>(@Parent() { id }, @Context(<%- name %>sLoader) loader: <%- capName %>sLoader) {
       const { <%- fieldName %> } = await loader.load(id);
       return <%- fieldName %>;
     }
   <% } %>
-
-
-  @ResolveField()
-  resource(@Parent() { id }) {
-    return { id };
-  }
 }
 
 @Module({
