@@ -36,7 +36,6 @@ export function create<%- capName %>sLoader(prisma: Prisma) {
 
     return ids.map((id) => {
       return dataMap[id];
-      };
     });
   });
 }
