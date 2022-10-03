@@ -17,7 +17,7 @@ import {
 import DataLoader from 'dataloader';
 import { Prisma } from './prisma';
 import { keyBy } from 'lodash';
-
+<% if (loader) {%>
 export type <%- capName %>sLoader = <%- capName %>Loader<string, <%- capName %>>;
 
 export const <%- name %>sLoader = '<%- name %>sLoader';
@@ -42,6 +42,7 @@ export function create<%- capName %>sLoader(prisma: Prisma) {
     });
   });
 }
+<% } %>
 
 @ObjectType()
 export class <%- capName %> {
@@ -56,7 +57,7 @@ export class <%- capName %> {
     <%- fieldName %>!: <%- fieldType %>;
   <% } %>
 }
-
+<% if (resolver) {%>
 @Resolver(() => <%- capName %>)
 export class <%- capName %>Resolver {
   <% for (const field of fields) {%>
@@ -65,11 +66,14 @@ export class <%- capName %>Resolver {
     %>
     @ResolveField()
     async <%- fieldName %>(@Parent() { id }, @Context(<%- name %>sLoader) loader: <%- capName %>sLoader) {
-      const { <%- fieldName %> } = await loader.load(id);
+      const { <%- fieldName %> } = await <% if (loader) {%>loader.load(id);<% } else { %> this.prismic.<%- dashToCamel(name) %>({
+        where: { id } 
+      })<% } %>
       return <%- fieldName %>;
     }
   <% } %>
 }
+<% } %>
 
 @Module({
   providers: [<%- capName %>Resolver],
