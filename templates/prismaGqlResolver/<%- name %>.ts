@@ -1,6 +1,6 @@
 /*
 <%
-const capName = capitalize(name);
+const capName = capitalize(dashToCamel(name));
 %>
 */
 
@@ -17,25 +17,14 @@ import {
 import DataLoader from 'dataloader';
 import { Prisma } from './prisma';
 import { keyBy } from 'lodash';
-import { Integration } from './integrations/resolver';
-import { Resource } from './resource';
 
 export type <%- capName %>sLoader = <%- capName %>Loader<string, Design>;
 
-export const designsLoader = 'designsLoader';
+export const <%- capName %>sLoader = '<%- capName %>sLoader';
 
 export function create<%- capName %>sLoader(prisma: Prisma) {
   return new DataLoader<string, Omit<<%- capName %>, 'resource'>>(async (ids) => {
-    const data = await prisma.resource.findMany({
-      include: {
-        <%- name %>: true,
-        integration: {
-          select: {
-            id: true,
-            app: true,
-          },
-        },
-      },
+    const data = await prisma.<%- dashToCamel(name)%>.findMany({
       where: {
         id: {
           in: ids as string[],
@@ -49,18 +38,13 @@ export function create<%- capName %>sLoader(prisma: Prisma) {
       const value = dataMap[id];
       return {
         id: value.id,
-        integration: value.integration,
-        resource: {
-          id: value.id,
-        },
-        title: value.<%- name %>!.name,
       };
     });
   });
 }
 
 @ObjectType()
-export class Design {
+export class <%- capName %> {
   @Field(() => ID)
   id!: string;
   
