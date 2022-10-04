@@ -12,8 +12,9 @@ import DataLoader from 'dataloader';
 import { Prisma } from './prisma';
 import { keyBy } from 'lodash';
 <% if (loader) {%>
-export type <%- capName %>sLoader = DataLoader<string, <%- capName %>>;
 
+export type <%- capName %>sLoader = DataLoader<string, <%- capName %>>;
+// TODO: add [<%- dashToCamel(name) %>sLoader]: create<%- capName %>sLoader(prisma) to context in app.module.ts
 export const <%- dashToCamel(name) %>sLoader = '<%- dashToCamel(name) %>sLoader';
 
 export function create<%- capName %>sLoader(prisma: Prisma) {
