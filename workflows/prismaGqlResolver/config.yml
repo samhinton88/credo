@@ -6,6 +6,7 @@ questions:
   - fields:
       type: stringArray
       prompt: What fields does this resource have? [fieldName:fieldType]
+      subtext: You can capitalize fieldType and it will treat the type as non-inferrable
   - resolver:
       type: boolean
       prompt: Does this resource need a resolver?
