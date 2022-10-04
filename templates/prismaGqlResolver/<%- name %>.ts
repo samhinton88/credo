@@ -12,9 +12,9 @@ import DataLoader from 'dataloader';
 import { Prisma } from './prisma';
 import { keyBy } from 'lodash';
 <% if (loader) {%>
-export type <%- capName %>sLoader = <%- capName %>Loader<string, <%- capName %>>;
+export type <%- capName %>sLoader = DataLoader<string, <%- capName %>>;
 
-export const <%- dashToCamel(name) %>sLoader = '<%- dashToCamel(name %>sLoader';
+export const <%- dashToCamel(name) %>sLoader = '<%- dashToCamel(name) %>sLoader';
 
 export function create<%- capName %>sLoader(prisma: Prisma) {
   return new DataLoader<string, <%- capName %>>(async (ids) => {
