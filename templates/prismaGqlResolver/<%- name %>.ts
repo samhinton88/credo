@@ -56,7 +56,7 @@ export class <%- capName %>Resolver {
     const [fieldName, fieldType] = field.split(':');
     %>
     @ResolveField()
-    async <%- fieldName %>(@Parent() { id }, @Context(<%- name %>sLoader) loader: <%- capName %>sLoader) {
+    async <%- fieldName %>(@Parent() { id }, @Context(<%- dashToCamel(name) %>sLoader) loader: <%- capName %>sLoader) {
       const { <%- fieldName %> } = await <% if (loader) {%>loader.load(id);<% } else { %> this.prismic.<%- dashToCamel(name) %>({
         where: { id } 
       })<% } %>
