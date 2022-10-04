@@ -2,7 +2,7 @@ headline: How to write data layer access for a gql resource
 questions:
   - name:
       type: string
-      prompt: What is the name of the filter?
+      prompt: What is the name of the resource?
   - fields:
       type: stringArray
       prompt: What fields does this resource have? [fieldName:fieldType]
