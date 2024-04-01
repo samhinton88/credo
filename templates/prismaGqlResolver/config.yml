@@ -3,6 +3,10 @@ parameters:
     type: string
   fields:
     type: stringArray
+  loader:
+    type: boolean
+  resolver:
+    type: boolean
     
 tags:
   - graphql

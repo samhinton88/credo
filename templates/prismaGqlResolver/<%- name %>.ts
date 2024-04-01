@@ -1,10 +1,4 @@
-/*
-<%
-const capName = capitalize(name);
-%>
-*/
-
-import { Module } from '@nestjs/common';
+<% const capName = capitalize(dashToCamel(name));%>import { Module } from '@nestjs/common';
 import {
   Context,
   Field,
@@ -17,25 +11,15 @@ import {
 import DataLoader from 'dataloader';
 import { Prisma } from './prisma';
 import { keyBy } from 'lodash';
-import { Integration } from './integrations/resolver';
-import { Resource } from './resource';
+<% if (loader) {%>
 
-export type <%- capName %>sLoader = <%- capName %>Loader<string, Design>;
-
-export const designsLoader = 'designsLoader';
+export type <%- capName %>sLoader = DataLoader<string, <%- capName %>>;
+// TODO: add [<%- dashToCamel(name) %>sLoader]: create<%- capName %>sLoader(prisma) to context in app.module.ts
+export const <%- dashToCamel(name) %>sLoader = '<%- dashToCamel(name) %>sLoader';
 
 export function create<%- capName %>sLoader(prisma: Prisma) {
-  return new DataLoader<string, Omit<<%- capName %>, 'resource'>>(async (ids) => {
-    const data = await prisma.resource.findMany({
-      include: {
-        <%- name %>: true,
-        integration: {
-          select: {
-            id: true,
-            app: true,
-          },
-        },
-      },
+  return new DataLoader<string, <%- capName %>>(async (ids) => {
+    const data = await prisma.<%- dashToCamel(name)%>.findMany({
       where: {
         id: {
           in: ids as string[],
@@ -46,21 +30,14 @@ export function create<%- capName %>sLoader(prisma: Prisma) {
     const dataMap = keyBy(data, 'id');
 
     return ids.map((id) => {
-      const value = dataMap[id];
-      return {
-        id: value.id,
-        integration: value.integration,
-        resource: {
-          id: value.id,
-        },
-        title: value.<%- name %>!.name,
-      };
+      return dataMap[id];
     });
   });
 }
+<% } %>
 
 @ObjectType()
-export class Design {
+export class <%- capName %> {
   @Field(() => ID)
   id!: string;
   
@@ -72,35 +49,23 @@ export class Design {
     <%- fieldName %>!: <%- fieldType %>;
   <% } %>
 }
-
+<% if (resolver) {%>
 @Resolver(() => <%- capName %>)
 export class <%- capName %>Resolver {
-  @ResolveField()
-  async integration(
-    @Parent() { id },
-    @Context(<%- capName %>sLoader) loader: <%- capName %>sLoader,
-  ) {
-    const { integration } = await loader.load(id);
-    return integration;
-  }
-
   <% for (const field of fields) {%>
     <% 
     const [fieldName, fieldType] = field.split(':');
     %>
     @ResolveField()
-    async title(@Parent() { id }, @Context(<%- name %>sLoader) loader: <%- capName %>sLoader) {
-      const { <%- fieldName %> } = await loader.load(id);
+    async <%- fieldName %>(@Parent() { id }, @Context(<%- dashToCamel(name) %>sLoader) loader: <%- capName %>sLoader) {
+      const { <%- fieldName %> } = await <% if (loader) {%>loader.load(id);<% } else { %> this.prismic.<%- dashToCamel(name) %>({
+        where: { id } 
+      })<% } %>
       return <%- fieldName %>;
     }
   <% } %>
-
-
-  @ResolveField()
-  resource(@Parent() { id }) {
-    return { id };
-  }
 }
+<% } %>
 
 @Module({
   providers: [<%- capName %>Resolver],
