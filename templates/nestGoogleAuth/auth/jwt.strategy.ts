@@ -17,23 +17,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     // This will automatically be called for every request with a JWT
 
 
-    const user = await this.userService.findById(payload.sub, {
-      include: {
-        notifications: { where: { status: 'UNREAD'}},
-        consumerProfile: { include: { chatRoomParticipations: true }},
-        designerProfile: {
-          include: {
-            designerProfileTags: { include: { tag: true }},
-            designerProfileDesignItemFabrics: { include: { designItemFabric: true }},
-            designerProfileImages: { include: { image: true }},
-            chatRoomParticipations: true,
-          },
-        },
-        consents: true,
-        addresses: true,
-
-      },
-    });
+    const user = await this.userService.findById(payload.sub);
 
     if (!user) {
       throw new UnauthorizedException();
