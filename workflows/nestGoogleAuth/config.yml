@@ -1,6 +1,8 @@
 headline: Boilerplate for google auth in a nestjs app
 questions:
-
+  - expiresIn:
+      type: string
+      prompt: When should the token expire? e.g. '30d'
 templates:
   - nestGoogleAuth
 tags:
