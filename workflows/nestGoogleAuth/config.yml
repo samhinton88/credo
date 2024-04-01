@@ -1,0 +1,7 @@
+headline: Boilerplate for google auth in a nestjs app
+questions:
+
+templates:
+  - nestGoogleAuth
+tags:
+  - nest
