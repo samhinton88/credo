@@ -1,0 +1,1 @@
+npm i --save @nestjs/passport @nestjs/jwt jsonwebtoken passport-google-oauth20 passport-jwt
